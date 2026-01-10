@@ -3,111 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>中山テストカタログ</title>
+  <title>テスト</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/png" href="Nakayama_Icon.ico" />
 </head>
-<nav>
-  <a href="staff.html">👥 スタッフ紹介</a>
-  <a href="horn.html">🔊 クラクション試聴</a>
-</nav>
+
 <body>
-  <header>
-    <h1>！！！テスト！！！</h1>
-    <div id="filters">
-      <div class="filter-group">
-        <div>
-          <label><input type="checkbox" class="type-filter" value="Sports" checked> Sports</label>
-          <label><input type="checkbox" class="type-filter" value="Muscle" checked> Muscle</label>
-          <label><input type="checkbox" class="type-filter" value="SUV" checked> SUV</label>
-          <label><input type="checkbox" class="type-filter" value="Lowrider" checked> Lowrider</label>
-          <label><input type="checkbox" class="type-filter" value="Offroad" checked> Offroad</label>
-        </div>
-        <div>
-          <label><input type="checkbox" class="type-filter" value="Benny's" checked> Benny's</label>
-          <label><input type="checkbox" class="type-filter" value="Tuner" checked> Tuner</label>
-          <label><input type="checkbox" class="type-filter" value="HighEnd" checked> High End</label>
-          <label><input type="checkbox" class="type-filter" value="Bespoke" checked> Bespoke</label>
-          <label><input type="checkbox" class="type-filter" value="Rally" checked> Rally</label>
-        </div>
-        <div>
-          <label><input type="checkbox" class="type-filter" value="Dragster" checked> DragSter</label>
-          <label><input type="checkbox" class="type-filter" value="Bike" checked> Bike</label>
-        </div>
-        
-        <label><input type="checkbox" class="source-filter" value="Vanilla" checked> Vanilla</label>
-        <label><input type="checkbox" class="source-filter" value="MOD" checked> MOD</label>
 
-        <div id="chrome-filter-group" class="chrome-filter-buttons">
-          <input type="radio" name="chrome" id="chrome-all" class="chrome-filter" value="All" checked>
-          <label for="chrome-all">すべて</label>
+  <!-- ────────────────
+        固定ナビ（v0.app風）
+  ───────────────── -->
+  <nav class="top-nav">
+    <h1 class="site-title">Nakayama Motors</h1>
+    <div class="nav-links">
+      <a href="index.html" class="nav-item active">🏠 ホイール</a>
+      <a href="staff.html" class="nav-item">👥 スタッフ</a>
+      <a href="horn.html" class="nav-item">🔊 クラクション</a>
+    </div>
+  </nav>
 
-          <input type="radio" name="chrome" id="chrome-true" class="chrome-filter" value="True">
-          <label for="chrome-true">クロームあり</label>
+  <!-- 全体ラップ -->
+  <div class="page-wrapper">
+
+    <!-- ────────────────
+          フィルターカード
+    ───────────────── -->
+    <section class="filter-card">
+
+      <h2>絞り込み</h2>
+
+      <div class="filter-grid">
+
+        <!-- タイプ系フィルター -->
+        <div class="filter-section">
+          <h3>タイプ</h3>
+          <div class="filter-list">
+            <label><input type="checkbox" class="type-filter" value="Sports" checked> Sports</label>
+            <label><input type="checkbox" class="type-filter" value="Muscle" checked> Muscle</label>
+            <label><input type="checkbox" class="type-filter" value="SUV" checked> SUV</label>
+            <label><input type="checkbox" class="type-filter" value="Lowrider" checked> Lowrider</label>
+            <label><input type="checkbox" class="type-filter" value="Offroad" checked> Offroad</label>
+            <label><input type="checkbox" class="type-filter" value="Benny's" checked> Benny's</label>
+            <label><input type="checkbox" class="type-filter" value="Tuner" checked> Tuner</label>
+            <label><input type="checkbox" class="type-filter" value="HighEnd" checked> High End</label>
+            <label><input type="checkbox" class="type-filter" value="Bespoke" checked> Bespoke</label>
+            <label><input type="checkbox" class="type-filter" value="Rally" checked> Rally</label>
+            <label><input type="checkbox" class="type-filter" value="Dragster" checked> DragSter</label>
+            <label><input type="checkbox" class="type-filter" value="Bike" checked> Bike</label>
+          </div>
+
+          <div class="filter-buttons">
+            <button id="type-all-on">すべて選択</button>
+            <button id="type-all-off">すべて解除</button>
+          </div>
         </div>
 
-        <!-- タイプの全選択・解除ボタン -->
-        <div class="filter-buttons">
-          <button type="button" id="type-all-on">すべて選択</button>
-          <button type="button" id="type-all-off">すべて解除</button>
+        <!-- ソース -->
+        <div class="filter-section">
+          <h3>ソース</h3>
+          <div class="filter-list">
+            <label><input type="checkbox" class="source-filter" value="Vanilla" checked> Vanilla</label>
+            <label><input type="checkbox" class="source-filter" value="MOD" checked> MOD</label>
+          </div>
         </div>
+
+        <!-- Chrome -->
+        <div class="filter-section">
+          <h3>クローム</h3>
+          <div class="chrome-filter-buttons small-buttons">
+            <label><input type="radio" name="chrome" value="All" checked> すべて</label>
+            <label><input type="radio" name="chrome" value="True"> クロームあり</label>
+          </div>
+        </div>
+
+        <!-- 検索 -->
+        <div class="filter-section">
+          <h3>検索</h3>
+          <input type="text" id="search" placeholder="名前で検索">
+        </div>
+
       </div>
 
-      <input type="text" id="search" placeholder="名前で検索">
+      <p id="filter-summary" class="filter-summary">絞り込み結果：すべて表示</p>
 
-      <!-- ここにチャット開閉ボタンを追加 -->
-      <button id="chat-toggle" style="display:none; margin-top: 10px;">
-        チャットを開く
-      </button>
+    </section>
 
-      <p id="filter-summary">絞り込み結果：すべて表示</p>
+    <main>
+      <div id="wheel-container" class="wheel-grid"></div>
+    </main>
+
+    <!-- チャットウィンドウ -->
+    <div id="chat-window" class="chat-window">
+      <div id="chat-content"></div>
     </div>
-  </header>
 
-  <main>
-    <div id="wheel-container"></div>
-  </main>
+    <button id="scroll-to-top" class="scroll-to-top">⇪</button>
 
-  <!-- チャットウィンドウ -->
-  <div id="chat-window" style="
-    display: none;
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    width: 300px;
-    max-height: 400px;
-    background-color: #1e1e1e;
-    color: white;
-    border-radius: 10px;
-    padding: 15px;
-    font-family: monospace;
-    font-size: 14px;
-    overflow-y: auto;
-    z-index: 1000;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  ">
-    <div id="chat-content"></div>
+    <footer class="site-footer">
+      <h2>お問い合わせ</h2>
+      <p><strong>FlecityName:</strong> 粉末 ぱうだぁ</p>
+      <p><strong>Form:</strong> <a href="https://forms.gle/HkCUNoGDMVmGTVwe9">お問い合わせフォーム</a></p>
+      <p><strong>Address:</strong> 228 株式会社　中山モータース</p>
+    </footer>
+
   </div>
 
-  <footer class="site-footer">
-    <h2>お問い合わせ</h2>
-    <p><strong>FlecityName:</strong> 粉末 ぱうだぁ</p>
-    <p><strong>Form:</strong> <a href="https://forms.gle/HkCUNoGDMVmGTVwe9">お問い合わせフォーム</a></p>
-    <p><strong>Address:</strong> 228 株式会社　中山モータース</p>
-  </footer>
-  
-  <button id="scroll-to-top" style="display: none;">⇪</button>
   <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
