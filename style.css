@@ -1,60 +1,157 @@
-/* ベース設定 */
+/* =========================
+   ベース設定
+========================= */
 * {
   box-sizing: border-box;
 }
 
 body {
   font-family: "Segoe UI", sans-serif;
-  background-color: #e0f7fa; /* 薄い水色 */
+  background-color: #e0f7fa;
   margin: 0;
   padding: 0;
   color: #333;
 }
 
+/* =========================
+   ヘッダー
+========================= */
 header {
-  background-color: #0288d1; /* 濃い青 */
+  background-color: #0288d1;
   color: white;
   padding: 1rem;
 }
 
-h1 {
+header h1 {
   margin: 0;
   font-size: 1.8rem;
 }
 
-/* フィルターエリア */
-#filters {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
+nav {
+  margin-top: .5rem;
+}
+
+nav a {
+  color: white;
+  margin-right: 1rem;
+  text-decoration: none;
+  font-size: .95rem;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   カテゴリ選択（4列固定）
+========================= */
+.category-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* ★ 4つずつ */
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* レスポンシブ */
+@media (max-width: 1000px) {
+  .category-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .category-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .category-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* カテゴリボタン */
+.category-btn {
+  background: white;
+  border: 2px solid #4dd0e1;
+  border-radius: 16px;
+  cursor: pointer;
+  padding: 1rem;
+  box-shadow: 2px 2px 8px rgba(2,136,209,.2);
+  transition: transform .2s, box-shadow .2s;
+
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 260px;
 }
 
-#search {
+.category-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 14px rgba(2,136,209,.35);
+}
+
+.category-btn img {
   width: 100%;
-  max-width: 300px;
-  padding: 0.5rem;
-  border: 1px solid #0288d1;
-  border-radius: 4px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
-#filter-summary {
-  flex-basis: 100%;
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
-  color: #00e64d;
+.category-btn span {
+  margin-top: .6rem;
+  font-size: 1.2rem;
+  color: #0288d1;
+  text-align: center;
+  font-weight: bold;
 }
 
-/* グリッド表示修正 */
+/* =========================
+   モーダル（ホイール一覧）
+========================= */
+.modal.hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+}
+
+.modal-content {
+  position: relative;
+  background: #e0f7fa;
+  max-width: 1200px;
+  margin: 5vh auto;
+  padding: 1rem;
+  border-radius: 16px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-content h2 {
+  text-align: center;
+  color: #0288d1;
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   ホイール一覧グリッド
+========================= */
 #wheel-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
-  padding: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 /* ホイールカード */
@@ -66,6 +163,8 @@ h1 {
   text-align: center;
   box-shadow: 2px 2px 6px rgba(2, 136, 209, 0.15);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .wheel-card:hover {
@@ -85,18 +184,28 @@ h1 {
   color: #0288d1;
 }
 
-.no-result {
-  text-align: center;
-  font-size: 1.2em;
-  padding: 2em;
-  color: #666;
+/* Mod / Vanilla ラベル */
+.wheel-type {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(2, 136, 209, 0.85);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
-.no-result strong {
-  color: #0288d1;
+.wheel-card:hover .wheel-type {
+  opacity: 1;
 }
 
-/* フッター */
+/* =========================
+   フッター
+========================= */
 .site-footer {
   background-color: #b2ebf2;
   padding: 20px;
@@ -121,86 +230,9 @@ h1 {
   text-decoration: underline;
 }
 
-.filter-buttons {
-  margin-top: 0.5rem;
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.filter-buttons button {
-  background-color: #0288d1; /* 濃い青 */
-  color: white;
-  border: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.filter-buttons button:hover {
-  background-color: #0277bd;
-}
-
-
-/* クロームフィルター用：水色系スタイル */
-.chrome-filter-buttons {
-  display: flex;
-  gap: 8px;
-  margin: 10px 0;
-}
-
-.chrome-filter-buttons input[type="radio"] {
-  display: none;
-}
-
-.chrome-filter-buttons label {
-  padding: 6px 12px;
-  border: 1px solid #4dd0e1;
-  border-radius: 6px;
-  cursor: pointer;
-  background-color: #e0f7fa;
-  color: #006064;
-  transition: all 0.2s;
-}
-
-.chrome-filter-buttons label:hover {
-  background-color: #b2ebf2;
-}
-
-.chrome-filter-buttons input[type="radio"]:checked + label {
-  background-color: #0288d1;
-  color: #fff;
-  border-color: #0288d1;
-}
-
-/* ホイール分類ラベル */
-.wheel-type {
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(2, 136, 209, 0.8);
-  color: white;
-  padding: 2px 6px;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-/* カードの位置を基準にする */
-.wheel-card {
-  position: relative; /* ←これを追加 */
-  overflow: hidden;   /* ラベルはみ出し防止 */
-}
-
-/* ホバー時に表示 */
-.wheel-card:hover .wheel-type {
-  opacity: 1;
-}
-
-/* スクロールトップボタン */
+/* =========================
+   スクロールトップ
+========================= */
 #scroll-to-top {
   position: fixed;
   bottom: 20px;
@@ -219,94 +251,3 @@ h1 {
   z-index: 10000;
   border: none;
 }
-
-
-.staff-img {
-  width: 100%;
-  height: 200px;        /* 固定サイズ */
-  object-fit: cover;    /* 埋め込み表示 */
-  border-radius: 12px;  /* カーブのある四角 */
-}
-
-/* 個別調整用クラス */
-.staff-img.top-align {
-  object-position: top;     /* 上寄せ */
-}
-
-.staff-img.bottom-align {
-  object-position: bottom;  /* 下寄せ */
-}
-
-.staff-img.center-align {
-  object-position: center;  /* 真ん中（デフォルト） */
-}
-
-.staff-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4列に分割 */
-  gap: 1.5rem;
-}
-.staff-card {
-  background: white;
-  border: 2px solid #4dd0e1;
-  border-radius: 12px;
-  text-align: center;
-  padding: 1rem;
-  box-shadow: 2px 2px 6px rgba(2, 136, 209, 0.15);
-}
-.staff-card img {
-  width: 150px;          
-  height: 150px;         
-  object-fit: cover;     
-  border-radius: 12px;  
-  margin-bottom: 10px;
-}
-
-
-/* クラクションページ */
-#horn-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.horn-card {
-  background: white;
-  border: 2px solid #4dd0e1;
-  padding: 1rem;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 2px 2px 6px rgba(2, 136, 209, 0.15);
-}
-
-.horn-card h3 {
-  font-size: 1rem;
-  color: #0288d1;
-}
-
-.horn-comment {
-  color: #555;
-  font-size: 0.85rem;
-}
-
-.play-btn {
-  background-color: #0288d1;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.play-btn:hover {
-  background-color: #0277bd;
-}
-
-
-
-
-
