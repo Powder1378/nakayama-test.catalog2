@@ -155,11 +155,21 @@ nav a:hover {
 }
 
 .modal-content h2 {
+  position: sticky;
+  top: 0;
+  background: #e0f7fa;
+  padding: 0.5rem 0;
+  z-index: 10;
+
   text-align: center;
   color: #0288d1;
   margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
+body.modal-open {
+  overflow: hidden;
+}
 /* =========================
    ホイール一覧
 ========================= */
@@ -215,6 +225,23 @@ nav a:hover {
   opacity: 1;
 }
 
+.wheel-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.wheel-color.color-ok {
+  color: #2e7d32; /* 緑 */
+  font-weight: bold;
+}
+
+.wheel-color.no-color {
+  color: #c62828; /* 赤 */
+  font-weight: bold;
+}
+
 /* =========================
    フッター
 ========================= */
@@ -262,5 +289,6 @@ nav a:hover {
   z-index: 10000;
   border: none;
 }
+
 
 
