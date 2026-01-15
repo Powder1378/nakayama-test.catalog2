@@ -1,5 +1,3 @@
-const data = [
-// Sports  
  const wheels = [
   // ===== Sports : Vanilla =====
   { name: "インフェルノ", category: "Sports", image: "./images/SPT_V_1.png", type: "Vanilla", chrome: true },
@@ -588,6 +586,7 @@ window.addEventListener("scroll", () => {
 scrollBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
 
 
 
