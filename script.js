@@ -544,7 +544,7 @@ function openModal(category) {
 function renderWheels(category) {
   wheelContainer.innerHTML = "";
 
-  const filtered = wheels.filter(w => w.category === category);
+  const filtered = wheels.filter(wheel => wheel.category === category);
 
   if (filtered.length === 0) {
     wheelContainer.innerHTML =
@@ -552,31 +552,32 @@ function renderWheels(category) {
     return;
   }
 
-filtered.forEach(wheel => {
-  const card = document.createElement("div");
-  card.className = "wheel-card";
+  filtered.forEach(wheel => {
+    const card = document.createElement("div");
+    card.className = "wheel-card";
 
-  const colorHTML =
-    wheel.color === true || wheel.color === false
-      ? `
+    // カラー変更可否（存在する場合のみ表示）
+    let colorHTML = "";
+    if (typeof wheel.color === "boolean") {
+      colorHTML = `
         <span class="wheel-color ${wheel.color ? "no-color" : "color-ok"}">
           ${wheel.color ? "カラー変更不可" : "カラー変更可"}
         </span>
-      `
-      : "";
+      `;
+    }
 
-  card.innerHTML = `
-    <img src="${wheel.image}" alt="${wheel.name}">
-    <h3>${wheel.name}</h3>
+    card.innerHTML = `
+      <img src="${wheel.image}" alt="${wheel.name}">
+      <h3>${wheel.name}</h3>
 
-    <div class="wheel-info">
-      <span class="wheel-category">${wheel.category}</span>
-      ${colorHTML}
-    </div>
-  `;
+      <div class="wheel-info">
+        <span class="wheel-category">${wheel.category}</span>
+        ${colorHTML}
+      </div>
+    `;
 
-  wheelContainer.appendChild(card);
-});
+    wheelContainer.appendChild(card);
+  });
 }
 
 
@@ -602,6 +603,7 @@ window.addEventListener("scroll", () => {
 scrollBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
 
 
 
