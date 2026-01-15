@@ -311,14 +311,13 @@ body.modal-open {
 
 
 
-
 /* =========================
-   スタッフ一覧
+   スタッフ一覧（4列固定）
 ========================= */
 .staff-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr));
-  gap: 1.5;
+  grid-template-columns: repeat(4, 1fr); /* ← 常に4列 */
+  gap: 24px;
   padding: 1.5rem;
   max-width: 1400px;
   margin: 0 auto;
@@ -355,7 +354,7 @@ body.modal-open {
   font-size: 1rem;
 }
 
-/* プロフィール（箇条書き） */
+/* プロフィール */
 .staff-profile {
   list-style: none;
   padding: 0;
@@ -373,5 +372,4 @@ body.modal-open {
   line-height: 1.5;
   color: #333;
 }
-
 
