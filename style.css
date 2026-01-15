@@ -313,37 +313,30 @@ body.modal-open {
 
 
 /* =========================
-   スタッフ一覧（ホイール方式）
+   スタッフ一覧（ホイール一覧方式）
 ========================= */
 .staff-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 220px);
-  gap: 20px;
-  justify-content: center;
-  padding: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+  padding: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;   /* 中央寄せ */
 }
 
-/* カード */
+/* =========================
+   スタッフカード
+========================= */
 .staff-card {
-  width: 220px;
   background: #ffffff;
   border: 2px solid #4fc3f7;
   border-radius: 16px;
   padding: 1rem;
-  box-sizing: border-box;
-
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,.08);
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-
-  box-shadow: 0 4px 10px rgba(0,0,0,.08);
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.staff-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 18px rgba(0,0,0,.15);
 }
 
 /* 画像 */
@@ -351,27 +344,33 @@ body.modal-open {
   width: 120px;
   height: 120px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 16px;
   margin-bottom: .5rem;
 }
 
 /* 名前 */
 .staff-card h3 {
-  font-size: .95rem;
   margin: .4rem 0;
   color: #0288d1;
-  line-height: 1.3;
-  word-break: break-word;
+  font-size: 1rem;
 }
 
-/* テキスト */
-.staff-card p {
-  font-size: .8rem;
+/* プロフィール（箇条書き） */
+.staff-profile {
+  list-style: none;
+  padding: 0;
+  margin: .4rem 0;
+  font-size: .85rem;
+}
+
+.staff-profile li {
   margin: .15rem 0;
-  word-break: break-word;
+}
+
+/* 説明文 */
+.staff-description {
+  font-size: .8rem;
+  line-height: 1.5;
   color: #333;
 }
-
-
-
 
