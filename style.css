@@ -109,7 +109,7 @@ nav a:hover {
 }
 
 .category-btn:hover img {
-  opacity: 0.85;
+  opacity: 1;
 }
 
 /* 文字（画像の下） */
@@ -262,4 +262,5 @@ nav a:hover {
   z-index: 10000;
   border: none;
 }
+
 
