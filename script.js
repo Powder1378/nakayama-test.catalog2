@@ -557,10 +557,10 @@ filtered.forEach(wheel => {
   card.className = "wheel-card";
 
   const colorHTML =
-    wheel.chrome === true || wheel.chrome === false
+    wheel.color === true || wheel.color === false
       ? `
-        <span class="wheel-color ${wheel.chrome ? "no-color" : "color-ok"}">
-          ${wheel.chrome ? "Color変更不可" : "Color変更可"}
+        <span class="wheel-color ${wheel.color ? "no-color" : "color-ok"}">
+          ${wheel.color ? "Color変更可" : "Color変更不可"}
         </span>
       `
       : "";
@@ -602,6 +602,7 @@ window.addEventListener("scroll", () => {
 scrollBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
 
 
 
