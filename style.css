@@ -317,10 +317,9 @@ body.modal-open {
 ========================= */
 .staff-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 320px));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 24px;
   padding: 1rem;
-  justify-content: center; /* 横に余白が出たら中央寄せ */
 }
 
 /* カード */
@@ -330,9 +329,9 @@ body.modal-open {
   border-radius: 16px;
   padding: 1rem;
 
+  max-width: 320px;      /* 横長防止 */
   width: 100%;
-  max-width: 320px;   /* ★ 横長防止の核心 */
-  min-height: 100%;  /* 高さを揃えやすく */
+  margin: 0 auto;        /* 各カードだけ中央寄せ */
 
   display: flex;
   flex-direction: column;
@@ -367,7 +366,7 @@ body.modal-open {
   color: #0288d1;
   font-size: 1.05rem;
   line-height: 1.4;
-  word-break: break-word; /* 長い名前対策 */
+  word-break: break-word;
 }
 
 /* =========================
@@ -376,7 +375,7 @@ body.modal-open {
 .staff-card p {
   font-size: .85rem;
   margin: .2rem 0;
-  word-break: break-word; /* 長文横はみ出し防止 */
+  word-break: break-word;
 }
 
 .staff-card p:last-of-type {
@@ -384,7 +383,6 @@ body.modal-open {
   line-height: 1.6;
   color: #333;
 }
-
 
 
 
