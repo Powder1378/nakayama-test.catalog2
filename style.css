@@ -233,12 +233,12 @@ body.modal-open {
 }
 
 .wheel-color.color-ok {
-  color: #2e7d32; /* 緑 */
+  color: #c62828; /* 赤 */
   font-weight: bold;
 }
 
 .wheel-color.no-color {
-  color: #c62828; /* 赤 */
+  color: #2e7d32; /* 緑 */
   font-weight: bold;
 }
 
@@ -289,6 +289,7 @@ body.modal-open {
   z-index: 10000;
   border: none;
 }
+
 
 
 
