@@ -235,7 +235,7 @@ body.modal-open {
 }
 
 /* hover時に表示 */
-.wheel-card:hover .wheel-type {
+.wheel-card:hover .wheel-category {
   opacity: 1;
 }
 
@@ -371,6 +371,7 @@ body.modal-open {
   word-break: break-word;
   color: #333;
 }
+
 
 
 
