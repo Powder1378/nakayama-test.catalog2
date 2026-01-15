@@ -570,7 +570,7 @@ filtered.forEach(wheel => {
     <h3>${wheel.name}</h3>
 
     <div class="wheel-info">
-      <span class="wheel-type">${wheel.type}</span>
+      <span class="wheel-category">${wheel.category}</span>
       ${colorHTML}
     </div>
   `;
@@ -602,6 +602,7 @@ window.addEventListener("scroll", () => {
 scrollBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
 
 
 
