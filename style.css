@@ -312,24 +312,22 @@ body.modal-open {
 
 
 /* =========================
-   スタッフ一覧
+   スタッフ一覧（4列固定）
 ========================= */
 .staff-container {
   display: grid;
-  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, 1fr); /* ← 強制4列 */
   gap: 24px;
-  padding: 1.5rem;
-  max-width: 1200px;
+  padding: 24px;
+  width: 100%;
+  max-width: 1400px; /* ← 重要：広げる */
   margin: 0 auto;
-  justify-items: center; /* ← カード中央寄せ */
 }
 
 /* =========================
    スタッフカード
 ========================= */
 .staff-card {
-  width: 100%;
-  max-width: 260px;        /* ← 横に伸びない最大幅 */
   background: #ffffff;
   border: 2px solid #4fc3f7;
   border-radius: 16px;
@@ -340,6 +338,8 @@ body.modal-open {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  aspect-ratio: 3 / 4; /* ← 横長防止（超重要） */
 }
 
 /* =========================
@@ -364,25 +364,10 @@ body.modal-open {
 }
 
 /* =========================
-   プロフィール
+   テキスト
 ========================= */
-.staff-profile {
-  list-style: none;
-  padding: 0;
-  margin: .4rem 0;
-  font-size: .85rem;
-}
-
-.staff-profile li {
+.staff-card p {
+  font-size: .8rem;
+  line-height: 1.4;
   margin: .15rem 0;
 }
-
-/* =========================
-   説明文
-========================= */
-.staff-description {
-  font-size: .8rem;
-  line-height: 1.5;
-  color: #333;
-}
-
