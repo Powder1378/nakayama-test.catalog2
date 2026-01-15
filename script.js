@@ -562,7 +562,7 @@ function renderWheels(category) {
 
       <div class="wheel-info">
         <span class="wheel-type">${wheel.type}</span>
-        <span class="wheel-color ${wheel.chrome ? "no-color" : "color-ok"}">
+        <span class="wheel-color ${wheel.color ? "no-color" : "color-ok"}">
           ${wheel.chrome ? "Color変更可" : "Color変更不可"}
         </span>
       </div>
@@ -595,6 +595,7 @@ window.addEventListener("scroll", () => {
 scrollBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
 
 
 
