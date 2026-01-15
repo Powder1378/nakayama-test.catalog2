@@ -320,6 +320,7 @@ body.modal-open {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
   padding: 1rem;
+  align-items: start; /* 高さ揃えで横に伸びるのを防止 */
 }
 
 .staff-card {
@@ -327,47 +328,63 @@ body.modal-open {
   border: 2px solid #4fc3f7;
   border-radius: 16px;
   padding: 1rem;
+
+  /* ★ 横長防止の最重要ポイント */
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+
   box-shadow: 0 4px 10px rgba(0,0,0,.08);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
-/* アイコン */
+.staff-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+
+/* =========================
+   アイコン
+========================= */
 .staff-card img {
-  width: 140px;
-  height: 140px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 16px;
-  margin-bottom: .5rem;
+  margin-bottom: .75rem;
 }
 
-/* 名前 */
+/* =========================
+   名前
+========================= */
 .staff-card h3 {
   margin: .5rem 0;
   color: #0288d1;
   font-size: 1.1rem;
+  line-height: 1.4;
 }
 
-/* プロフィール */
-.staff-profile {
-  list-style: none;
-  padding: 0;
-  margin: .5rem 0;
-  font-size: .9rem;
-}
-
-.staff-profile li {
+/* =========================
+   プロフィール（短文）
+========================= */
+.staff-card p {
+  font-size: .85rem;
   margin: .2rem 0;
 }
 
-/* 説明文 */
-.staff-description {
-  font-size: .85rem;
-  line-height: 1.5;
+/* =========================
+   説明文（長文）
+========================= */
+.staff-card p:last-of-type {
   margin-top: .5rem;
+  line-height: 1.6;
   color: #333;
 }
-
-
 
 
 
