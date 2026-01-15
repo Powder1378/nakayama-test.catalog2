@@ -312,5 +312,56 @@ body.modal-open {
 
 
 
+/* =========================
+   スタッフカード
+========================= */
+.staff-card {
+  background: #fff;
+  border: 2px solid #4fc3f7;
+  border-radius: 16px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,.08);
+}
+
+/* アイコン */
+.staff-card img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: .5rem;
+}
+
+/* 名前 */
+.staff-card h3 {
+  margin: .5rem 0;
+  color: #0288d1;
+  font-size: 1.1rem;
+}
+
+/* プロフィール */
+.staff-profile {
+  list-style: none;
+  padding: 0;
+  margin: .5rem 0;
+  font-size: .9rem;
+}
+
+.staff-profile li {
+  margin: .2rem 0;
+}
+
+/* 説明文 */
+.staff-description {
+  font-size: .85rem;
+  line-height: 1.5;
+  margin-top: .5rem;
+  color: #333;
+}
+
+
+
+
 
 
