@@ -208,7 +208,7 @@ body.modal-open {
 
 /* Mod / Vanilla */
 .wheel-type {
-  position: absolute;
+  position: static;
   bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
@@ -302,6 +302,7 @@ body.modal-open {
   z-index: 10000;
   border: none;
 }
+
 
 
 
