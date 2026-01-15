@@ -562,6 +562,18 @@ function renderWheels(category) {
 
     wheelContainer.appendChild(card);
   });
+
+ card.innerHTML = `
+  <img src="${wheel.image}" alt="${wheel.name}">
+  <h3>${wheel.name}</h3>
+
+  <div class="wheel-info">
+    <span class="wheel-type">${wheel.type}</span>
+    <span class="wheel-color ${wheel.chrome ? "no-color" : "color-ok"}">
+      ${wheel.chrome ? "Color変更不可" : "Color変更可"}
+    </span>
+  </div>
+`;
 }
 
 /* =========================
@@ -586,6 +598,7 @@ window.addEventListener("scroll", () => {
 scrollBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
 
 
 
