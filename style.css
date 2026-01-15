@@ -236,7 +236,7 @@ body.modal-open {
 }
 
 .wheel-type {
-  align-self: flex-start;
+  align-self: center;
   font-weight: bold;
 }
 
@@ -302,6 +302,7 @@ body.modal-open {
   z-index: 10000;
   border: none;
 }
+
 
 
 
