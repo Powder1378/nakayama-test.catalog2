@@ -207,7 +207,7 @@ body.modal-open {
 }
 
 /* =========================
-   wheel-info（type + color の親）
+   wheel-info（category + color の親）
 ========================= */
 .wheel-info {
   display: flex;
@@ -219,9 +219,9 @@ body.modal-open {
 }
 
 /* =========================
-   Mod / Vanilla
+   ホイールの種類
 ========================= */
-.wheel-type {
+.wheel-category {
   position: static;              /* absolute完全排除 */
   background: rgba(2,136,209,.85);
   color: #fff;
@@ -383,6 +383,7 @@ body.modal-open {
   line-height: 1.6;
   color: #333;
 }
+
 
 
 
