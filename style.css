@@ -313,15 +313,15 @@ body.modal-open {
 
 
 /* =========================
-   スタッフ一覧（ホイール一覧方式）
+   スタッフ一覧
 ========================= */
 .staff-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr));
+  gap: 1.5;
   padding: 1.5rem;
   max-width: 1400px;
-  margin: 0 auto;   /* 中央寄せ */
+  margin: 0 auto;
 }
 
 /* =========================
@@ -373,4 +373,5 @@ body.modal-open {
   line-height: 1.5;
   color: #333;
 }
+
 
