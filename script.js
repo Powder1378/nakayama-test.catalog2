@@ -552,24 +552,31 @@ function renderWheels(category) {
     return;
   }
 
-  filtered.forEach(wheel => {
-    const card = document.createElement("div");
-    card.className = "wheel-card";
+filtered.forEach(wheel => {
+  const card = document.createElement("div");
+  card.className = "wheel-card";
 
-    card.innerHTML = `
-      <img src="${wheel.image}" alt="${wheel.name}">
-      <h3>${wheel.name}</h3>
-
-      <div class="wheel-info">
-        <span class="wheel-type">${wheel.type}</span>
-        <span class="wheel-color ${wheel.color ? "no-color" : "color-ok"}">
-          ${wheel.color ? "Color変更可" : "Color変更不可"}
+  const colorHTML =
+    wheel.chrome === true || wheel.chrome === false
+      ? `
+        <span class="wheel-color ${wheel.chrome ? "no-color" : "color-ok"}">
+          ${wheel.chrome ? "Color変更不可" : "Color変更可"}
         </span>
-      </div>
-    `;
+      `
+      : "";
 
-    wheelContainer.appendChild(card);
-  });
+  card.innerHTML = `
+    <img src="${wheel.image}" alt="${wheel.name}">
+    <h3>${wheel.name}</h3>
+
+    <div class="wheel-info">
+      <span class="wheel-type">${wheel.type}</span>
+      ${colorHTML}
+    </div>
+  `;
+
+  wheelContainer.appendChild(card);
+});
 }
 
 
@@ -595,6 +602,7 @@ window.addEventListener("scroll", () => {
 scrollBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
 
 
 
