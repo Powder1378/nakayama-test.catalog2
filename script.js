@@ -560,7 +560,7 @@ filtered.forEach(wheel => {
     wheel.color === true || wheel.color === false
       ? `
         <span class="wheel-color ${wheel.color ? "no-color" : "color-ok"}">
-          ${wheel.color ? "Color変更不可" : "Color変更可"}
+          ${wheel.color ? "カラー変更不可" : "カラー変更可"}
         </span>
       `
       : "";
@@ -602,6 +602,7 @@ window.addEventListener("scroll", () => {
 scrollBtn.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+
 
 
 
