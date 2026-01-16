@@ -374,7 +374,18 @@ body.modal-open {
   margin: 2px 0;
 }
 
+.staff-profile {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
+.staff-profile li {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  margin: .25rem 0;
+}
 
 
 /* ===== クラクション一覧 ===== */
@@ -433,6 +444,7 @@ body.modal-open {
   color: #666;
 
 }
+
 
 
 
