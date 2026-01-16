@@ -87,11 +87,13 @@ container.innerHTML = HORNS.map(h => `
   <div class="horn-card">
     <h3 class="horn-name">${h.name}</h3>
 
+    ${h.comment ? `<p class="horn-comment">${h.comment}</p>` : ""}
+
     <button class="play-btn" data-id="${h.id}">
       ▶ 再生
     </button>
 
-    ${h.comment ? `<p class="horn-comment">${h.comment}</p>` : ""}
+    
   </div>
 `).join('');
 
