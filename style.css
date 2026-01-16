@@ -413,11 +413,6 @@ body.modal-open {
   font-size: 1.05rem;
 }
 
-.horn-comment {
-  margin-top: .6rem;
-  font-size: .8rem;
-  color: #666;
-
 .play-btn {
   background: #0288d1;
   color: #fff;
@@ -432,7 +427,12 @@ body.modal-open {
   background: #0277bd;
 }
 
+.horn-comment {
+  margin-top: .6rem;
+  font-size: .8rem;
+  color: #666;
 
 }
+
 
 
