@@ -260,6 +260,31 @@ body.modal-open {
 
 
 /* =========================
+   ホイール一覧（常設）
+========================= */
+#wheel-list {
+  padding: 2rem 1rem;
+}
+
+/* カテゴリ見出し */
+.wheel-category-title {
+  margin: 2.5rem 0 1rem;
+  padding-bottom: .3rem;
+  border-bottom: 2px solid #0288d1;
+  color: #0288d1;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+}
+
+/* カード並び（ホイール一覧用） */
+.wheel-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+
+/* =========================
    フッター
 ========================= */
 .site-footer {
@@ -444,6 +469,7 @@ body.modal-open {
   color: #666;
 
 }
+
 
 
 
