@@ -605,6 +605,64 @@ scrollBtn.addEventListener("click", () => {
 });
 
 
+/* =========================
+   ホイール一覧（常設表示）
+========================= */
+const wheelList = document.getElementById("wheel-list");
+
+if (wheelList) {
+  // カテゴリ一覧（表示順を固定）
+  const categories = [
+    "Sports",
+    "Muscle",
+    "Lowrider",
+    "SUV",
+    "Offroad",
+    "Tuner"
+  ];
+
+  categories.forEach(category => {
+    const items = wheels.filter(w => w.category === category);
+    if (items.length === 0) return;
+
+    // 見出し
+    const title = document.createElement("h2");
+    title.className = "wheel-category-title";
+    title.textContent = category;
+    wheelList.appendChild(title);
+
+    // グリッド
+    const grid = document.createElement("div");
+    grid.className = "wheel-list-grid";
+
+    items.forEach(wheel => {
+      const card = document.createElement("div");
+      card.className = "wheel-card";
+
+      const colorHTML =
+        wheel.color === true || wheel.color === false
+          ? `
+            <span class="wheel-color ${wheel.color ? "no-color" : "color-ok"}">
+              ${wheel.color ? "カラー変更不可" : "カラー変更可"}
+            </span>
+          `
+          : "";
+
+      card.innerHTML = `
+        <img src="${wheel.image}" alt="${wheel.name}">
+        <h3>${wheel.name}</h3>
+        <div class="wheel-info">
+          <span class="wheel-category">${wheel.category}</span>
+          ${colorHTML}
+        </div>
+      `;
+
+      grid.appendChild(card);
+    });
+
+    wheelList.appendChild(grid);
+  });
+}
 
 
 
